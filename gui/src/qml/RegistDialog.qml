@@ -103,6 +103,7 @@ DialogView {
             Label {
                 Layout.alignment: Qt.AlignRight
                 text: qsTr("Пин код:")
+
             }
 
             C.TextField {
@@ -112,22 +113,22 @@ DialogView {
             }
 
            
- Label {
-                Layout.alignment: Qt.AlignRight
-                text: qsTr("[не поддерживается]")
-            }
+
 
             C.TextField {
                 id: cpin
                 validator: RegularExpressionValidator { regularExpression: /^$|[0-9]{4}/ }
                 Layout.preferredWidth: 400
+ visible: false
             }
             Label {
                 Layout.alignment: Qt.AlignRight
                 text: qsTr("Broadcast:")
+ visible: false
             }
  C.CheckBox {
                 id: broadcast
+ visible: false
             }
           
             Label {
@@ -142,12 +143,14 @@ DialogView {
                     id: ps4_7
                     property int target: 800
                     text: qsTr("[не поддерживается]")
+ visible: false
                 }
 
                 C.RadioButton {
                     id: ps4_75
                     property int target: 900
                     text: qsTr("[не поддерживается]")
+ visible: false
                 }
 
                 C.RadioButton {
