@@ -192,7 +192,7 @@ Pane {
                         if (modelData.name)
                             t += modelData.name + "\n";
                         if (modelData.address)
-                            t += qsTr("Address: %1").arg(modelData.address);
+                            t += qsTr("IP адрес: %1").arg(modelData.address);
                         if (modelData.mac)
                             t += "\n" + qsTr("ID: %1 (%2)").arg(modelData.mac).arg(modelData.registered ? qsTr("registered") : qsTr("unregistered"));
                         if (modelData.duid)
@@ -222,7 +222,7 @@ Pane {
                         let t = "";
                         if(modelData.duid)
                             return t;
-                        t += qsTr("State: %1").arg(modelData.state);
+                        t += qsTr("Статус: %1").arg(modelData.state);
                         if(!modelData.discovered)
                             return t;
                         if (modelData.app)
@@ -241,7 +241,7 @@ Pane {
 
                     Button {
                         Layout.alignment: Qt.AlignCenter
-                        text: qsTr("Delete")
+                        text: qsTr("Удалить")
                         flat: true
                         padding: 20
                         leftPadding: delegate.highlighted ? 50 : undefined
@@ -259,14 +259,14 @@ Pane {
                             width: 28
                             height: 28
                             sourceSize: Qt.size(width, height)
-                            source: root.controllerButton("box")
+                            source: root.controllerButton("Квадрат")
                             visible: delegate.highlighted
                         }
                     }
 
                     Button {
                         Layout.alignment: Qt.AlignCenter
-                        text: qsTr("Wake Up")
+                        text: qsTr("Разбудить консоль")
                         flat: true
                         padding: 20
                         leftPadding: delegate.highlighted ? 50 : undefined
