@@ -61,8 +61,8 @@ int real_main(int argc, char *argv[])
 	QGuiApplication::setOrganizationName("Chiaki");
 	QGuiApplication::setApplicationName("Chiaki");
 	QGuiApplication::setApplicationVersion(CHIAKI_VERSION);
-	QGuiApplication::setApplicationDisplayName("chiaki-ng");
-	QGuiApplication::setDesktopFileName("chiaki-ng");
+	QGuiApplication::setApplicationDisplayName("chiaki-ng адаптация для сервиса облачного гейминга 4Cloud");
+	QGuiApplication::setDesktopFileName("chiaki-ng адаптация для сервиса облачного гейминга 4Cloud");
 
 	qputenv("QTWEBENGINE_CHROMIUM_FLAGS", "--disable-gpu");
 #if defined(Q_OS_WIN)
@@ -88,7 +88,7 @@ int real_main(int argc, char *argv[])
 		return 1;
 	}
 
-    SDL_SetHint(SDL_HINT_APP_NAME, "chiaki-ng");
+    SDL_SetHint(SDL_HINT_APP_NAME, "chiaki-ng адаптация для сервиса облачного гейминга 4Cloud");
 
 	if(SDL_Init(SDL_INIT_AUDIO) < 0)
 	{
