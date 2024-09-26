@@ -10,8 +10,8 @@ import "controls" as C
 DialogView {
     property bool ps5: true
     property alias host: hostField.text
-    title: qsTr("Register Console")
-    buttonText: qsTr("✓ Register")
+    title: qsTr("Привязать устройство")
+    buttonText: qsTr("✓ Привязать")
     buttonEnabled: hostField.text.trim() && pin.acceptableInput && cpin.acceptableInput && (!onlineId.visible || onlineId.text.trim()) && (!accountId.visible || accountId.text.trim())
     StackView.onActivated: {
         if (host == "255.255.255.255")
@@ -48,7 +48,7 @@ DialogView {
 
             Label {
                 Layout.alignment: Qt.AlignRight
-                text: qsTr("Host:")
+                text: qsTr("IP адрес:")
             }
 
             C.TextField {
@@ -59,7 +59,7 @@ DialogView {
 
             Label {
                 Layout.alignment: Qt.AlignRight
-                text: qsTr("PSN Online-ID:")
+                text: qsTr("Логин PSN:")
                 visible: onlineId.visible
             }
 
@@ -91,7 +91,7 @@ DialogView {
                     }
                     topPadding: 18
                     bottomPadding: 18
-                    text: qsTr("PSN Login")
+                    text: qsTr("Логин PSN")
                     onClicked: stack.push(psnLoginDialogComponent, {login: true, callback: (id) => accountId.text = id})
                     visible: !Chiaki.settings.psnAccountId
                     Material.roundedScale: Material.SmallScale
@@ -114,7 +114,7 @@ DialogView {
 
             Label {
                 Layout.alignment: Qt.AlignRight
-                text: qsTr("Remote Play PIN:")
+                text: qsTr("Пин код:")
             }
 
             C.TextField {
@@ -125,7 +125,7 @@ DialogView {
 
             Label {
                 Layout.alignment: Qt.AlignRight
-                text: qsTr("Console Pin [Optional]")
+                text: qsTr("Console Pin [не нужно]")
             }
 
             C.TextField {
@@ -145,7 +145,7 @@ DialogView {
 
             Label {
                 Layout.alignment: Qt.AlignRight
-                text: qsTr("Console:")
+                text: qsTr("Тариф:")
             }
 
             ColumnLayout {
@@ -166,7 +166,7 @@ DialogView {
                 C.RadioButton {
                     id: ps4_8
                     property int target: 1000
-                    text: qsTr("PS4 Firmware >= 8.0")
+                    text: qsTr("PS4 Slim или Pro")
                     checked: !ps5
                 }
 
