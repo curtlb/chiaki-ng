@@ -330,7 +330,7 @@ Pane {
         padding: 20
         focusPolicy: Qt.NoFocus
         checkable: true
-        checked: !Chiaki.discoveryEnabled
+        checked: Chiaki.discoveryEnabled
         onToggled: Chiaki.discoveryEnabled = !Chiaki.discoveryEnabled
         Material.background: Material.accent
     }
