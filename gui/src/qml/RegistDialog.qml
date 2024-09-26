@@ -12,7 +12,7 @@ DialogView {
     property alias host: hostField.text
     title: qsTr("Привязать устройство")
     buttonText: qsTr("✓ Привязать")
-    buttonEnabled: hostField.text.trim() && pin.acceptableInput && cpin.acceptableInput && (!onlineId.visible || onlineId.text.trim()) && (!accountId.visible || accountId.text.trim())
+    buttonEnabled: hostField.text.trim() && pin.acceptableInput && (!accountId.visible || accountId.text.trim())
     StackView.onActivated: {
         if (host == "255.255.255.255")
             broadcast.checked = true;
