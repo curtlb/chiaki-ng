@@ -111,26 +111,14 @@ DialogView {
                 Layout.preferredWidth: 400
             }
 
-            Label {
-                Layout.alignment: Qt.AlignRight
-                text: qsTr("Console Pin [не нужно]")
-            }
-
-            C.TextField {
-                id: cpin
-                validator: RegularExpressionValidator { regularExpression: /^$|[0-9]{4}/ }
-                Layout.preferredWidth: 400
-            }
+           
 
             Label {
                 Layout.alignment: Qt.AlignRight
                 text: qsTr("Broadcast:")
             }
 
-            C.CheckBox {
-                id: broadcast
-            }
-
+          
             Label {
                 Layout.alignment: Qt.AlignRight
                 text: qsTr("Тариф:")
