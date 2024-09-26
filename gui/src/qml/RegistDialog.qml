@@ -57,18 +57,7 @@ DialogView {
                 firstInFocusChain: true
             }
 
-            Label {
-                Layout.alignment: Qt.AlignRight
-                text: qsTr("Логин PSN:")
-                visible: onlineId.visible
-            }
-
-            C.TextField {
-                id: onlineId
-                visible: ps4_7.checked
-                placeholderText: qsTr("username, case-sensitive")
-                Layout.preferredWidth: 400
-            }
+           
 
             Label {
                 Layout.alignment: Qt.AlignRight
@@ -81,11 +70,10 @@ DialogView {
                 visible: !ps4_7.checked
                 placeholderText: qsTr("можно посмотреть в боте")
                 Layout.preferredWidth: 400 - loginButton.width - 10
-
-                C.Button {
+ C.Button {
                     id: lookupButton
                     anchors {
-                        left: loginButton.right
+                        left: parent.right
                         verticalCenter: parent.verticalCenter
                         leftMargin: 10
                     }
@@ -96,6 +84,9 @@ DialogView {
                     visible: !Chiaki.settings.psnAccountId
                     Material.roundedScale: Material.SmallScale
                 }
+
+
+               
             }
 
             Label {
