@@ -8,8 +8,8 @@ import org.streetpea.chiaking
 import "controls" as C
 
 DialogView {
-    title: qsTr("Add Manual Console")
-    buttonText: qsTr("✓ Add")
+    title: qsTr("Привязать консоль")
+    buttonText: qsTr("✓ Привязать")
     buttonEnabled: hostField.text.trim() && (consoleCombo.model[consoleCombo.currentIndex].index != -1)
     onAccepted: {
         Chiaki.addManualHost(consoleCombo.model[consoleCombo.currentIndex].index, hostField.text.trim());
@@ -29,7 +29,7 @@ DialogView {
 
             Label {
                 Layout.alignment: Qt.AlignRight
-                text: qsTr("Host:")
+                text: qsTr("IP адрес:")
             }
 
             C.TextField {
@@ -40,7 +40,7 @@ DialogView {
 
             Label {
                 Layout.alignment: Qt.AlignRight
-                text: qsTr("Registered Consoles:")
+                text: qsTr("Известные консоли:")
             }
 
             C.ComboBox {
@@ -53,7 +53,7 @@ DialogView {
                     if(Chiaki.settings.registeredHosts.length > 0)
                     {
                         m.push({
-                            name: qsTr("Select an Option"),
+                            name: qsTr("Выберите из списка"),
                             index: -1,
                         });
                     }
