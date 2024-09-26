@@ -10,8 +10,8 @@ import "controls" as C
 DialogView {
     property bool ps5: true
     property alias host: hostField.text
-    title: qsTr("Register Console")
-    buttonText: qsTr("✓ Register")
+    title: qsTr("Привязать устройство к консоли")
+    buttonText: qsTr("✓ Привязать")
     buttonEnabled: hostField.text.trim() && pin.acceptableInput && cpin.acceptableInput && (!onlineId.visible || onlineId.text.trim()) && (!accountId.visible || accountId.text.trim())
     StackView.onActivated: {
         if (host == "255.255.255.255")
@@ -53,13 +53,14 @@ DialogView {
 
             C.TextField {
                 id: hostField
+ placeholderText: qsTr("77.37.160.*")
                 Layout.preferredWidth: 400
                 firstInFocusChain: true
             }
 
             Label {
                 Layout.alignment: Qt.AlignRight
-                text: qsTr("PSN Online-ID:")
+                text: qsTr("Логин PSN:")
                 visible: onlineId.visible
             }
 
@@ -85,7 +86,7 @@ DialogView {
                 C.Button {
                     id: lookupButton
                     anchors {
-                        left: parent.right
+                        left: loginButton.right
                         verticalCenter: parent.verticalCenter
                         leftMargin: 10
                     }
@@ -96,12 +97,12 @@ DialogView {
                     visible: !Chiaki.settings.psnAccountId
                     Material.roundedScale: Material.SmallScale
                 }
-               
+             
             }
 
             Label {
                 Layout.alignment: Qt.AlignRight
-                text: qsTr("Remote Play PIN:")
+                text: qsTr("Пин код:")
             }
 
             C.TextField {
@@ -112,7 +113,7 @@ DialogView {
 
             Label {
                 Layout.alignment: Qt.AlignRight
-                text: qsTr("Console Pin [Optional]")
+                text: qsTr("Console Pin [не нужно]")
             }
 
             C.TextField {
@@ -138,7 +139,17 @@ DialogView {
             ColumnLayout {
                 spacing: 0
 
-            
+                C.RadioButton {
+                    id: ps4_7
+                    property int target: 800
+                    text: qsTr("[не поддерживается]")
+                }
+
+                C.RadioButton {
+                    id: ps4_75
+                    property int target: 900
+                    text: qsTr("[не поддерживается]")
+                }
 
                 C.RadioButton {
                     id: ps4_8
@@ -159,7 +170,7 @@ DialogView {
 
         ButtonGroup {
             id: consoleButtons
-            buttons: [ps4_8, ps5_0]
+            buttons: [ps4_7, ps4_75, ps4_8, ps5_0]
         }
 
         Dialog {
@@ -167,7 +178,7 @@ DialogView {
             parent: Overlay.overlay
             x: Math.round((root.width - width) / 2)
             y: Math.round((root.height - height) / 2)
-            title: qsTr("Register Console")
+            title: qsTr("Авторизация устройства")
             modal: true
             closePolicy: Popup.NoAutoClose
             standardButtons: Dialog.Cancel
