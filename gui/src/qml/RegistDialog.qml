@@ -86,7 +86,7 @@ DialogView {
                 C.Button {
                     id: lookupButton
                     anchors {
-                        left: loginButton.right
+                        left: parent.right
                         verticalCenter: parent.verticalCenter
                         leftMargin: 10
                     }
@@ -97,7 +97,7 @@ DialogView {
                     visible: !Chiaki.settings.psnAccountId
                     Material.roundedScale: Material.SmallScale
                 }
-             
+              
             }
 
             Label {
