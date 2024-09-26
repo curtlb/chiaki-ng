@@ -330,7 +330,7 @@ Pane {
         padding: 20
         focusPolicy: Qt.NoFocus
         checkable: true
-        checked: Chiaki.discoveryEnabled
+        checked: !Chiaki.discoveryEnabled
         onToggled: Chiaki.discoveryEnabled = !Chiaki.discoveryEnabled
         Material.background: Material.accent
     }
@@ -344,20 +344,5 @@ Pane {
         text: Qt.application.version
     }
 
-    Image {
-        id: logoImage
-        anchors.centerIn: parent
-        source: "qrc:/icons/chiaking-logo-white.svg"
-        sourceSize: Qt.size(Math.min(parent.width, parent.height) / 2, Math.min(parent.width, parent.height) / 2)
-
-        PropertyAnimation {
-            target: logoImage
-            property: "opacity"
-            from: 0.05
-            to: 0.20
-            duration: 1000
-            easing.type: Easing.OutCubic
-            running: true
-        }
-    }
+   
 }
