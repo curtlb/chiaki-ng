@@ -210,7 +210,7 @@ Pane {
                                     t += qsTr("discovered");
                             }
                             else
-                                t += qsTr("manual");
+                                t += qsTr("Добавлена вручную");
                         }
                         return t;
                     }
@@ -259,7 +259,7 @@ Pane {
                             width: 28
                             height: 28
                             sourceSize: Qt.size(width, height)
-                            source: root.controllerButton("Квадрат")
+                            source: root.controllerButton("box")
                             visible: delegate.highlighted
                         }
                     }
