@@ -10,9 +10,9 @@ import "controls" as C
 DialogView {
     property bool ps5: true
     property alias host: hostField.text
-    title: qsTr("Привязать устройство")
-    buttonText: qsTr("✓ Привязать")
-    buttonEnabled: hostField.text.trim() && pin.acceptableInput && (!accountId.visible || accountId.text.trim())
+    title: qsTr("Register Console")
+    buttonText: qsTr("✓ Register")
+    buttonEnabled: hostField.text.trim() && pin.acceptableInput && cpin.acceptableInput && (!onlineId.visible || onlineId.text.trim()) && (!accountId.visible || accountId.text.trim())
     StackView.onActivated: {
         if (host == "255.255.255.255")
             broadcast.checked = true;
@@ -29,10 +29,10 @@ DialogView {
             if (ok && done)
                 stack.pop();
         });
-        
+        if (registerOk) {
             logArea.text = "";
             logDialog.open();
-        
+        }
     }
 
     Item {
@@ -57,7 +57,18 @@ DialogView {
                 firstInFocusChain: true
             }
 
-           
+            Label {
+                Layout.alignment: Qt.AlignRight
+                text: qsTr("PSN Online-ID:")
+                visible: onlineId.visible
+            }
+
+            C.TextField {
+                id: onlineId
+                visible: ps4_7.checked
+                placeholderText: qsTr("username, case-sensitive")
+                Layout.preferredWidth: 400
+            }
 
             Label {
                 Layout.alignment: Qt.AlignRight
@@ -70,7 +81,8 @@ DialogView {
                 visible: !ps4_7.checked
                 placeholderText: qsTr("можно посмотреть в боте")
                 Layout.preferredWidth: 400
- C.Button {
+
+                C.Button {
                     id: lookupButton
                     anchors {
                         left: parent.right
@@ -80,18 +92,16 @@ DialogView {
                     topPadding: 18
                     bottomPadding: 18
                     text: qsTr("Личный аккаунт")
-                    onClicked: stack.push(psnLoginDialogComponent, {login: false, callback: (id) => accountId.text = id})
+                   onClicked: stack.push(psnLoginDialogComponent, {login: false, callback: (id) => accountId.text = id})
                     visible: !Chiaki.settings.psnAccountId
                     Material.roundedScale: Material.SmallScale
                 }
-
-
                
             }
 
             Label {
                 Layout.alignment: Qt.AlignRight
-                text: qsTr("Пин код:")
+                text: qsTr("Remote Play PIN:")
             }
 
             C.TextField {
@@ -100,22 +110,50 @@ DialogView {
                 Layout.preferredWidth: 400
             }
 
-            
+            Label {
+                Layout.alignment: Qt.AlignRight
+                text: qsTr("Console Pin [Optional]")
+            }
 
-          
+            C.TextField {
+                id: cpin
+                validator: RegularExpressionValidator { regularExpression: /^$|[0-9]{4}/ }
+                Layout.preferredWidth: 400
+            }
 
             Label {
                 Layout.alignment: Qt.AlignRight
-                text: qsTr("Тариф:")
+                text: qsTr("Broadcast:")
+            }
+
+            C.CheckBox {
+                id: broadcast
+            }
+
+            Label {
+                Layout.alignment: Qt.AlignRight
+                text: qsTr("Console:")
             }
 
             ColumnLayout {
                 spacing: 0
 
                 C.RadioButton {
+                    id: ps4_7
+                    property int target: 800
+                    text: qsTr("PS4 Firmware < 7.0")
+                }
+
+                C.RadioButton {
+                    id: ps4_75
+                    property int target: 900
+                    text: qsTr("PS4 Firmware >= 7.0, < 8.0")
+                }
+
+                C.RadioButton {
                     id: ps4_8
                     property int target: 1000
-                    text: qsTr("PS4 Slim или Pro")
+                    text: qsTr("PS4 Firmware >= 8.0")
                     checked: !ps5
                 }
 
@@ -139,7 +177,7 @@ DialogView {
             parent: Overlay.overlay
             x: Math.round((root.width - width) / 2)
             y: Math.round((root.height - height) / 2)
-            title: qsTr("Авторизация устройства")
+            title: qsTr("Register Console")
             modal: true
             closePolicy: Popup.NoAutoClose
             standardButtons: Dialog.Cancel
