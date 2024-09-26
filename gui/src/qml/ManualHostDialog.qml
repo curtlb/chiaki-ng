@@ -34,6 +34,7 @@ DialogView {
 
             C.TextField {
                 id: hostField
+                 placeholderText: qsTr("77.37.160.*")
                 Layout.preferredWidth: 400
                 firstInFocusChain: true
             }
