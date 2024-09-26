@@ -292,6 +292,7 @@ Pane {
                     Button {
                         Layout.alignment: Qt.AlignCenter
                         text: qsTr("Update Console Pin")
+ visible: false
                         flat: true
                         padding: 20
                         leftPadding: delegate.highlighted ? 50 : undefined
