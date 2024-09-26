@@ -110,7 +110,7 @@ DialogView {
 
                     Label {
                         Layout.alignment: Qt.AlignRight
-                        text: qsTr("Action On Disconnect:")
+                        text: qsTr("Действие при разрыве соединения:")
                     }
 
                     C.ComboBox {
@@ -128,7 +128,7 @@ DialogView {
 
                     Label {
                         Layout.alignment: Qt.AlignRight
-                        text: qsTr("Action On Suspend:")
+                        text: qsTr("Действие при переводе приставки в сон:")
                     }
 
                     C.ComboBox {
@@ -145,7 +145,7 @@ DialogView {
 
                     Label {
                         Layout.alignment: Qt.AlignRight
-                        text: qsTr("Rumble Haptics")
+                        text: qsTr("Сила адапативных триггеров")
                     }
 
                     C.ComboBox {
@@ -224,45 +224,7 @@ DialogView {
                         visible: typeof Chiaki.settings.verticalDeck !== "undefined"
                     }
 
-                    Label {
-                        Layout.alignment: Qt.AlignRight
-                        text: qsTr("Verbose Logging:")
-                    }
-
-                    C.CheckBox {
-                        text: qsTr("Warning: Don't enable for regular use")
-                        checked: Chiaki.settings.logVerbose
-                        onToggled: Chiaki.settings.logVerbose = checked
-                    }
-
-                    Label {
-                        Layout.alignment: Qt.AlignRight
-                        text: qsTr("(Unchecked)")
-                    }
-
-                    Label {
-                        Layout.alignment: Qt.AlignRight
-                        text: qsTr("Log Directory:")
-                    }
-
-                    Label {
-                        Layout.maximumWidth: 600
-                        text: Chiaki.settings.logDirectory
-                        verticalAlignment: Text.AlignVCenter
-                        fontSizeMode: Text.HorizontalFit
-                        minimumPixelSize: 10
-
-                        C.Button {
-                            anchors {
-                                left: parent.left
-                                verticalCenter: parent.verticalCenter
-                                leftMargin: parent.paintedWidth + 20
-                            }
-                            text: qsTr("Open")
-                            onClicked: Qt.openUrlExternally("file://" + parent.text);
-                            Material.roundedScale: Material.SmallScale
-                        }
-                    }
+            
                 }
             }
 
@@ -280,7 +242,7 @@ DialogView {
 
                     Label {
                         Layout.alignment: Qt.AlignRight
-                        text: qsTr("Hardware Decoder:")
+                        text: qsTr("Декодер:")
                     }
 
                     C.ComboBox {
@@ -297,7 +259,7 @@ DialogView {
 
                     Label {
                         Layout.alignment: Qt.AlignRight
-                        text: qsTr("Window Type:")
+                        text: qsTr("Разрешение экрана:")
                     }
 
                     C.ComboBox {
@@ -314,7 +276,7 @@ DialogView {
 
                     Label {
                         Layout.alignment: Qt.AlignRight
-                        text: qsTr("Toggle Fullscreen on Double-click:")
+                        text: qsTr("Полноэкранный режим двойным кликом:")
                     }
 
                     C.CheckBox {
@@ -329,7 +291,7 @@ DialogView {
 
                     Label {
                         Layout.alignment: Qt.AlignRight
-                        text: qsTr("Render Preset:")
+                        text: qsTr("Рендеринг:")
                     }
 
                     C.ComboBox {
@@ -382,7 +344,7 @@ DialogView {
 
                     Label {
                         Layout.alignment: Qt.AlignRight
-                        text: qsTr("Settings for:")
+                        text: qsTr("Консоль:")
                     }
 
 
@@ -435,10 +397,6 @@ DialogView {
                         text: qsTr("")
                     }
 
-                    Label {
-                        Layout.alignment: Qt.AlignCenter
-                        text: qsTr("Local")
-                    }
 
                     Label {
                         Layout.alignment: Qt.AlignCenter
@@ -447,26 +405,10 @@ DialogView {
 
                     Label {
                         Layout.alignment: Qt.AlignRight
-                        text: qsTr("Resolution:")
+                        text: qsTr("Качество:")
                     }
 
-                    C.ComboBox {
-                        id: resolutionLocalPS4
-                        Layout.preferredWidth: 400
-                        model: [qsTr("360p"), qsTr("540p"), qsTr("720p (Default)"), qsTr("1080p (PS5 and PS4 Pro)")]
-                        currentIndex: Chiaki.settings.resolutionLocalPS4 - 1
-                        onActivated: (index) => Chiaki.settings.resolutionLocalPS4 = index + 1
-                        visible: selectedConsole == SettingsDialog.Console.PS4
-                        KeyNavigation.right: resolutionRemotePS4
-                        KeyNavigation.down: fpsLocalPS4
-                        KeyNavigation.up: consoleSelection
-                        KeyNavigation.priority: {
-                            if(!popup.visible)
-                                KeyNavigation.BeforeItem
-                            else
-                                KeyNavigation.AfterItem
-                        }
-                    }
+            
 
                     C.ComboBox {
                         id: resolutionRemotePS4
@@ -486,23 +428,7 @@ DialogView {
                         }
                     }
 
-                    C.ComboBox {
-                        id: resolutionLocalPS5
-                        Layout.preferredWidth: 400
-                        model: [qsTr("360p"), qsTr("540p"), qsTr("720p"), qsTr("1080p (Default)")]
-                        currentIndex: Chiaki.settings.resolutionLocalPS5 - 1
-                        onActivated: (index) => Chiaki.settings.resolutionLocalPS5 = index + 1
-                        visible: selectedConsole == SettingsDialog.Console.PS5
-                        KeyNavigation.right: resolutionRemotePS5
-                        KeyNavigation.up: consoleSelection
-                        KeyNavigation.down: fpsLocalPS5
-                        KeyNavigation.priority: {
-                            if(!popup.visible)
-                                KeyNavigation.BeforeItem
-                            else
-                                KeyNavigation.AfterItem
-                        }
-                    }
+                    
 
                     C.ComboBox {
                         id: resolutionRemotePS5
@@ -527,23 +453,7 @@ DialogView {
                         text: qsTr("FPS:")
                     }
 
-                    C.ComboBox {
-                        id: fpsLocalPS4
-                        Layout.preferredWidth: 400
-                        model: [qsTr("30 fps"), qsTr("60 fps (Default)")]
-                        currentIndex: (Chiaki.settings.fpsLocalPS4 / 30) - 1
-                        onActivated: (index) => Chiaki.settings.fpsLocalPS4 = (index + 1) * 30
-                        visible: selectedConsole == SettingsDialog.Console.PS4
-                        KeyNavigation.up: resolutionLocalPS4
-                        KeyNavigation.right: fpsRemotePS4
-                        KeyNavigation.down: bitrateLocalPS4
-                        KeyNavigation.priority: {
-                            if(!popup.visible)
-                                KeyNavigation.BeforeItem
-                            else
-                                KeyNavigation.AfterItem
-                        }
-                    }
+                   
 
                     C.ComboBox {
                         id: fpsRemotePS4
@@ -563,23 +473,7 @@ DialogView {
                         }
                     }
 
-                    C.ComboBox {
-                        id: fpsLocalPS5
-                        Layout.preferredWidth: 400
-                        model: [qsTr("30 fps"), qsTr("60 fps (Default)")]
-                        currentIndex: (Chiaki.settings.fpsLocalPS5 / 30) - 1
-                        onActivated: (index) => Chiaki.settings.fpsLocalPS5 = (index + 1) * 30
-                        visible: selectedConsole == SettingsDialog.Console.PS5
-                        KeyNavigation.up: resolutionLocalPS5
-                        KeyNavigation.right: fpsRemotePS5
-                        KeyNavigation.down: bitrateLocalPS5
-                        KeyNavigation.priority: {
-                            if(!popup.visible)
-                                KeyNavigation.BeforeItem
-                            else
-                                KeyNavigation.AfterItem
-                        }
-                    }
+                   
 
                     C.ComboBox {
                         id: fpsRemotePS5
@@ -601,46 +495,10 @@ DialogView {
 
                     Label {
                         Layout.alignment: Qt.AlignRight
-                        text: qsTr("Bitrate:")
+                        text: qsTr("Битрейт:")
                     }
 
-                    C.TextField {
-                        id: bitrateLocalPS4
-                        Layout.preferredWidth: 400
-                        visible: selectedConsole == SettingsDialog.Console.PS4
-                        text: Chiaki.settings.bitrateLocalPS4 || ""
-                        placeholderText: {
-                            var bitrate = 0;
-                            switch (Chiaki.settings.resolutionLocalPS4) {
-                            case 1: bitrate = 2000; break; // 360p
-                            case 2: bitrate = 6000; break; // 540p
-                            case 3: bitrate = 10000; break; // 720p
-                            case 4: bitrate = 30000; break; // 1080p
-                            }
-                            return qsTr("Automatic (%1)").arg(bitrate);
-                        }
-                        KeyNavigation.up: fpsLocalPS4
-                        KeyNavigation.right: bitrateRemotePS4
-                        KeyNavigation.priority: {
-                            if(readOnly)
-                                KeyNavigation.BeforeItem
-                            else
-                                KeyNavigation.AfterItem
-                        }
-                        Material.accent: text && !validate() ? Material.Red : undefined
-                        onEditingFinished: {
-                            if (validate()) {
-                                Chiaki.settings.bitrateLocalPS4 = parseInt(text);
-                            } else {
-                                Chiaki.settings.bitrateLocalPS4 = 0;
-                                text = "";
-                            }
-                        }
-                        function validate() {
-                            var num = parseInt(text);
-                            return num >= 2000 && num <= 99999;
-                        }
-                    }
+                    
 
                     C.TextField {
                         id: bitrateRemotePS4
@@ -681,44 +539,7 @@ DialogView {
                         }
                     }
 
-                    C.TextField {
-                        id: bitrateLocalPS5
-                        Layout.preferredWidth: 400
-                        visible: selectedConsole == SettingsDialog.Console.PS5
-                        text: Chiaki.settings.bitrateLocalPS5 || ""
-                        placeholderText: {
-                            var bitrate = 0;
-                            switch (Chiaki.settings.resolutionLocalPS5) {
-                            case 1: bitrate = 2000; break; // 360p
-                            case 2: bitrate = 6000; break; // 540p
-                            case 3: bitrate = 10000; break; // 720p
-                            case 4: bitrate = 30000; break; // 1080p
-                            }
-                            return qsTr("Automatic (%1)").arg(bitrate);
-                        }
-                        KeyNavigation.up: fpsLocalPS5
-                        KeyNavigation.right: bitrateRemotePS5
-                        KeyNavigation.down: codecLocalPS5
-                        KeyNavigation.priority: {
-                            if(readOnly)
-                                KeyNavigation.BeforeItem
-                            else
-                                KeyNavigation.AfterItem
-                        }
-                        Material.accent: text && !validate() ? Material.Red : undefined
-                        onEditingFinished: {
-                            if (validate()) {
-                                Chiaki.settings.bitrateLocalPS5 = parseInt(text);
-                            } else {
-                                Chiaki.settings.bitrateLocalPS5 = 0;
-                                text = "";
-                            }
-                        }
-                        function validate() {
-                            var num = parseInt(text);
-                            return num >= 2000 && num <= 99999;
-                        }
-                    }
+                    
 
                     C.TextField {
                         id: bitrateRemotePS5
@@ -761,33 +582,11 @@ DialogView {
 
                     Label {
                         Layout.alignment: Qt.AlignRight
-                        text: qsTr("Codec:")
+                        text: qsTr("Сжатие:")
                         visible: selectedConsole == SettingsDialog.Console.PS5
                     }
 
-                    C.ComboBox {
-                        id: codecLocalPS5
-                        Layout.preferredWidth: 400
-                        model: [qsTr("H264"), qsTr("H265 (Default)"), qsTr("H265 HDR")]
-                        currentIndex: Chiaki.settings.codecLocalPS5
-                        onActivated: (index) => Chiaki.settings.codecLocalPS5 = index
-                        visible: selectedConsole == SettingsDialog.Console.PS5
-                        Keys.onReturnPressed: {
-                            if (popup.visible) {
-                                activated(highlightedIndex);
-                                popup.close();
-                            } else
-                                popup.open();
-                        }
-                        KeyNavigation.up: bitrateLocalPS5
-                        KeyNavigation.right: codecRemotePS5
-                        KeyNavigation.priority: {
-                            if(!popup.visible)
-                                KeyNavigation.BeforeItem
-                            else
-                                KeyNavigation.AfterItem
-                        }
-                    }
+                   
 
                     C.ComboBox {
                         id: codecRemotePS5
