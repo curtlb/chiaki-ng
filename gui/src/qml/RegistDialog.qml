@@ -69,7 +69,7 @@ DialogView {
                 id: accountId
                 visible: !ps4_7.checked
                 placeholderText: qsTr("можно посмотреть в боте")
-                Layout.preferredWidth: 400 - loginButton.width - 10
+                Layout.preferredWidth: 400
  C.Button {
                     id: lookupButton
                     anchors {
