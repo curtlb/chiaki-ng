@@ -160,7 +160,7 @@ Pane {
 
             function deleteHost() {
                 if (modelData.manual)
-                    root.showConfirmDialog(qsTr("Delete Console"), qsTr("Are you sure you want to delete this console?"), () => Chiaki.deleteHost(index));
+                    root.showConfirmDialog(qsTr("Удалить консоль"), qsTr("Уверены, что хотите удалить консоль?"), () => Chiaki.deleteHost(index));
             }
 
             function setConsolePin() {
