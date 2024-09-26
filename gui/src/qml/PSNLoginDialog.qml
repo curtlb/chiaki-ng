@@ -111,7 +111,7 @@ DialogView {
                 id: formLabel
                 Layout.alignment: Qt.AlignCenter
                 Layout.bottomMargin: 50
-                text: qsTr("This requires your PSN privacy settings to allow anyone to find you in your search")
+                text: qsTr("Введите логин своего личного аккаунта в поле ниже чтобы преобразовать его в необходимый Chiaki формат")
             }
 
             C.TextField {
@@ -119,7 +119,7 @@ DialogView {
                 Layout.preferredWidth: 400
                 Layout.alignment: Qt.AlignCenter
                 firstInFocusChain: true
-                placeholderText: qsTr("Username")
+                placeholderText: qsTr("Логин")
                 onAccepted: submitButton.clicked()
             }
 
@@ -128,7 +128,7 @@ DialogView {
                 Layout.preferredWidth: 400
                 Layout.alignment: Qt.AlignCenter
                 lastInFocusChain: true
-                text: qsTr("Submit")
+                text: qsTr("Подтвердить")
                 onClicked: {
                     const username = usernameField.text.trim();
                     if (!username.length || !enabled)
