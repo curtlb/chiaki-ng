@@ -132,28 +132,18 @@ DialogView {
 
             Label {
                 Layout.alignment: Qt.AlignRight
-                text: qsTr("Console:")
+                text: qsTr("Тариф:")
             }
 
             ColumnLayout {
                 spacing: 0
 
-                C.RadioButton {
-                    id: ps4_7
-                    property int target: 800
-                    text: qsTr("PS4 Firmware < 7.0")
-                }
-
-                C.RadioButton {
-                    id: ps4_75
-                    property int target: 900
-                    text: qsTr("PS4 Firmware >= 7.0, < 8.0")
-                }
+            
 
                 C.RadioButton {
                     id: ps4_8
                     property int target: 1000
-                    text: qsTr("PS4 Firmware >= 8.0")
+                    text: qsTr("PS4 Slim или Pro")
                     checked: !ps5
                 }
 
