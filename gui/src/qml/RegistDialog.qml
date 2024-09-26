@@ -29,10 +29,10 @@ DialogView {
             if (ok && done)
                 stack.pop();
         });
-        if (registerOk) {
+        
             logArea.text = "";
             logDialog.open();
-        }
+        
     }
 
     Item {
