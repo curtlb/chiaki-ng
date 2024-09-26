@@ -72,30 +72,16 @@ DialogView {
 
             Label {
                 Layout.alignment: Qt.AlignRight
-                text: qsTr("PSN Account-ID:")
+                text: qsTr("Логин PSN:")
                 visible: accountId.visible
             }
 
             C.TextField {
                 id: accountId
                 visible: !ps4_7.checked
-                placeholderText: qsTr("base64")
+                placeholderText: qsTr("можно посмотреть в боте")
                 Layout.preferredWidth: 400 - loginButton.width - 10
 
-                C.Button {
-                    id: loginButton
-                    anchors {
-                        left: parent.right
-                        verticalCenter: parent.verticalCenter
-                        leftMargin: 10
-                    }
-                    topPadding: 18
-                    bottomPadding: 18
-                    text: qsTr("Логин PSN")
-                    onClicked: stack.push(psnLoginDialogComponent, {login: true, callback: (id) => accountId.text = id})
-                    visible: !Chiaki.settings.psnAccountId
-                    Material.roundedScale: Material.SmallScale
-                }
                 C.Button {
                     id: lookupButton
                     anchors {
@@ -105,7 +91,7 @@ DialogView {
                     }
                     topPadding: 18
                     bottomPadding: 18
-                    text: qsTr("Public Lookup")
+                    text: qsTr("Личный аккаунт")
                     onClicked: stack.push(psnLoginDialogComponent, {login: false, callback: (id) => accountId.text = id})
                     visible: !Chiaki.settings.psnAccountId
                     Material.roundedScale: Material.SmallScale
@@ -123,25 +109,9 @@ DialogView {
                 Layout.preferredWidth: 400
             }
 
-            Label {
-                Layout.alignment: Qt.AlignRight
-                text: qsTr("Console Pin [не нужно]")
-            }
+            
 
-            C.TextField {
-                id: cpin
-                validator: RegularExpressionValidator { regularExpression: /^$|[0-9]{4}/ }
-                Layout.preferredWidth: 400
-            }
-
-            Label {
-                Layout.alignment: Qt.AlignRight
-                text: qsTr("Broadcast:")
-            }
-
-            C.CheckBox {
-                id: broadcast
-            }
+          
 
             Label {
                 Layout.alignment: Qt.AlignRight
@@ -150,18 +120,6 @@ DialogView {
 
             ColumnLayout {
                 spacing: 0
-
-                C.RadioButton {
-                    id: ps4_7
-                    property int target: 800
-                    text: qsTr("PS4 Firmware < 7.0")
-                }
-
-                C.RadioButton {
-                    id: ps4_75
-                    property int target: 900
-                    text: qsTr("PS4 Firmware >= 7.0, < 8.0")
-                }
 
                 C.RadioButton {
                     id: ps4_8
@@ -182,7 +140,7 @@ DialogView {
 
         ButtonGroup {
             id: consoleButtons
-            buttons: [ps4_7, ps4_75, ps4_8, ps5_0]
+            buttons: [ps4_8, ps5_0]
         }
 
         Dialog {
@@ -190,7 +148,7 @@ DialogView {
             parent: Overlay.overlay
             x: Math.round((root.width - width) / 2)
             y: Math.round((root.height - height) / 2)
-            title: qsTr("Register Console")
+            title: qsTr("Авторизация устройства")
             modal: true
             closePolicy: Popup.NoAutoClose
             standardButtons: Dialog.Cancel
