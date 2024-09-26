@@ -12,7 +12,7 @@ DialogView {
     property var callback: null
     property bool login
     property var psnurl: ""
-    title: qsTr("PSN Login")
+    title: qsTr("Узнать PSN логин личного аккаунта")
     buttonVisible: false
     buttonText: qsTr("✓ Get Account ID")
     buttonEnabled: url.text.trim()
