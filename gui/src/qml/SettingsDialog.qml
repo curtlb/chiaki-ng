@@ -17,8 +17,8 @@ DialogView {
     property int selectedConsole: SettingsDialog.Console.PS5
     property bool quitControllerMapping: true
     id: dialog
-    title: qsTr("Settings")
-    header: qsTr("* Defaults in () to right of value or marked with (Default)")
+    title: qsTr("Настройки")
+    header: qsTr("")
     buttonVisible: false
     Keys.onPressed: (event) => {
         if (event.modifiers)
@@ -46,42 +46,42 @@ DialogView {
             }
 
             TabButton {
-                text: qsTr("General")
+                text: qsTr("Общие")
                 focusPolicy: Qt.NoFocus
             }
 
             TabButton {
-                text: qsTr("Video")
+                text: qsTr("Кодеки")
                 focusPolicy: Qt.NoFocus
             }
 
             TabButton {
-                text: qsTr("Stream")
+                text: qsTr("Трансляция")
                 focusPolicy: Qt.NoFocus
             }
 
             TabButton {
-                text: qsTr("Audio/Wifi")
+                text: qsTr("Аудио и WiFi")
                 focusPolicy: Qt.NoFocus
             }
 
             TabButton {
-                text: qsTr("Consoles")
+                text: qsTr("Консоли")
                 focusPolicy: Qt.NoFocus
             }
 
             TabButton {
-                text: qsTr("Keys")
+                text: qsTr("Раскладка")
                 focusPolicy: Qt.NoFocus
             }
 
             TabButton {
-                text: qsTr("Controllers")
+                text: qsTr("Геймпады")
                 focusPolicy: Qt.NoFocus
             }
 
             TabButton {
-                text: qsTr("Config")
+                text: qsTr("Конфиги")
                 focusPolicy: Qt.NoFocus
             }
         }
