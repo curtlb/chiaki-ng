@@ -400,7 +400,7 @@ DialogView {
                     Label {
                         Layout.alignment: Qt.AlignCenter
                         text: qsTr("Local")
- visible: false
+
                     }
 
                     Label {
@@ -415,7 +415,7 @@ DialogView {
 
                     C.ComboBox {
                         id: resolutionLocalPS4
- visible: false
+
                         Layout.preferredWidth: 400
                         model: [qsTr("360p"), qsTr("540p"), qsTr("720p (Default)"), qsTr("1080p (PS5 and PS4 Pro)")]
                         currentIndex: Chiaki.settings.resolutionLocalPS4 - 1
@@ -452,7 +452,7 @@ DialogView {
 
                     C.ComboBox {
                         id: resolutionLocalPS5
- visible: false
+
                         Layout.preferredWidth: 400
                         model: [qsTr("360p"), qsTr("540p"), qsTr("720p"), qsTr("1080p (Default)")]
                         currentIndex: Chiaki.settings.resolutionLocalPS5 - 1
@@ -494,7 +494,7 @@ DialogView {
 
                     C.ComboBox {
                         id: fpsLocalPS4
- visible: false
+
                         Layout.preferredWidth: 400
                         model: [qsTr("30 fps"), qsTr("60 fps (Default)")]
                         currentIndex: (Chiaki.settings.fpsLocalPS4 / 30) - 1
@@ -531,7 +531,7 @@ DialogView {
 
                     C.ComboBox {
                         id: fpsLocalPS5
- visible: false
+
                         Layout.preferredWidth: 400
                         model: [qsTr("30 fps"), qsTr("60 fps (Default)")]
                         currentIndex: (Chiaki.settings.fpsLocalPS5 / 30) - 1
@@ -573,7 +573,7 @@ DialogView {
 
                     C.TextField {
                         id: bitrateLocalPS4
- visible: false
+
                         Layout.preferredWidth: 400
                         visible: selectedConsole == SettingsDialog.Console.PS4
                         text: Chiaki.settings.bitrateLocalPS4 || ""
@@ -735,7 +735,7 @@ DialogView {
 
                     C.ComboBox {
                         id: codecLocalPS5
- visible: false
+
                         Layout.preferredWidth: 400
                         model: [qsTr("H264"), qsTr("H265 (Default)"), qsTr("H265 HDR")]
                         currentIndex: Chiaki.settings.codecLocalPS5
