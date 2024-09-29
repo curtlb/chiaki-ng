@@ -85,7 +85,7 @@ Pane {
             font.pixelSize: 60
             focusPolicy: Qt.NoFocus
          onClicked: {
-                            importDialog.open()
+                            Chiaki.settings.importDialog.open()
                         }
             Material.roundedScale: Material.SmallScale
   
