@@ -355,6 +355,14 @@ Pane {
         }
         text: Qt.application.version
     }
-
+ FileDialog {
+            id: importDialog
+            currentFolder: StandardPaths.standardLocations(StandardPaths.DesktopLocation)[0]
+            defaultSuffix: "ini"
+            onAccepted: Chiaki.settings.importSettings(selectedFile)
+            nameFilters: ["Settings files (*.ini)"]
+            fileMode: FileDialog.OpenFile
+            acceptLabel: "Import From File"
+        }
    
 }
