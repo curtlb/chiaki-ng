@@ -97,9 +97,8 @@ FileDialog {
             flat: true
             id: importButton
            
-  icon.source: "qrc:/icons/import.svg";
- icon.width: 50
-                icon.height: 50   
+ text: "Добавить"
+                font.pixelSize: 20
             focusPolicy: Qt.NoFocus
          onClicked: {
                               importDialog.open()
