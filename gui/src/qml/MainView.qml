@@ -93,11 +93,11 @@ FileDialog {
  Button {
 
             Layout.fillHeight: true
-            Layout.preferredWidth: 150
+            Layout.preferredWidth: 250
             flat: true
             id: importButton
            
- text: "Добавить"
+ text: "Добавить конфиг"
                 font.pixelSize: 20
             focusPolicy: Qt.NoFocus
          onClicked: {
