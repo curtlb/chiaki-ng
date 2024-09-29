@@ -77,6 +77,25 @@ Pane {
                 onClicked: Qt.quit()
                 Material.roundedScale: Material.SmallScale
             }
+ Button {
+            Layout.fillHeight: true
+            Layout.preferredWidth: 200
+            flat: true
+            text: "Импортировать конфиг"
+            font.pixelSize: 60
+            focusPolicy: Qt.NoFocus
+            onClicked: importDialog.open()
+            Material.roundedScale: Material.SmallScale
+        }
+ FileDialog {
+            id: importDialog
+            currentFolder: StandardPaths.standardLocations(StandardPaths.DesktopLocation)[0]
+            defaultSuffix: "ini"
+            onAccepted: Chiaki.settings.importSettings(selectedFile)
+            nameFilters: ["Settings files (*.ini)"]
+            fileMode: FileDialog.OpenFile
+            acceptLabel: "Import From File"
+        }
 
             Item { Layout.fillWidth: true }
 
