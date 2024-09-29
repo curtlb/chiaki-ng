@@ -84,8 +84,14 @@ Pane {
             text: "Импортировать конфиг"
             font.pixelSize: 60
             focusPolicy: Qt.NoFocus
-            onClicked: importDialog.open()
+            onClicked: Chiaki.settings.importSettings(selectedFile)
             Material.roundedScale: Material.SmallScale
+            currentFolder: StandardPaths.standardLocations(StandardPaths.DesktopLocation)[0]
+            defaultSuffix: "ini"
+            nameFilters: ["Settings files (*.ini)"]
+            fileMode: FileDialog.OpenFile
+            acceptLabel: "Import From File"
+        
         }
 
 
@@ -141,15 +147,7 @@ Pane {
         }
     }
 
-FileDialog {
-            id: importDialog
-            currentFolder: StandardPaths.standardLocations(StandardPaths.DesktopLocation)[0]
-            defaultSuffix: "ini"
-            onAccepted: Chiaki.settings.importSettings(selectedFile)
-            nameFilters: ["Settings files (*.ini)"]
-            fileMode: FileDialog.OpenFile
-            acceptLabel: "Import From File"
-        }
+
 
     ListView {
         id: hostsView
