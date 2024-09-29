@@ -92,13 +92,15 @@ FileDialog {
             }
  Button {
             Layout.fillHeight: true
-            Layout.preferredWidth: 200
+            Layout.preferredWidth: 100
             flat: true
- id: importButton
-            
+            id: importButton
+           
   icon.source: "qrc:/icons/import.svg"
-text: "Импортировать конфиг"
-            font.pixelSize: 60
+ icon.width: 50
+                icon.height: 50
+
+           
             focusPolicy: Qt.NoFocus
          onClicked: {
                               importDialog.open()
