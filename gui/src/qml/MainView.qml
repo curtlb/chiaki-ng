@@ -52,15 +52,7 @@ Pane {
             break;
         }
     }
-FileDialog {
-            id: importDialog
-            currentFolder: StandardPaths.standardLocations(StandardPaths.DesktopLocation)[0]
-            defaultSuffix: "ini"
-            onAccepted: Chiaki.settings.importSettings(selectedFile)
-            nameFilters: ["Settings files (*.ini)"]
-            fileMode: FileDialog.OpenFile
-            acceptLabel: "Import From File"
-        }
+
     ToolBar {
         id: toolBar
         anchors {
@@ -71,6 +63,17 @@ FileDialog {
         height: 80
 
         RowLayout {
+
+FileDialog {
+            id: importDialog
+            currentFolder: StandardPaths.standardLocations(StandardPaths.DesktopLocation)[0]
+            defaultSuffix: "ini"
+            onAccepted: Chiaki.settings.importSettings(selectedFile)
+            nameFilters: ["Settings files (*.ini)"]
+            fileMode: FileDialog.OpenFile
+            acceptLabel: "Import From File"
+        }
+
             anchors {
                 fill: parent
                 leftMargin: 10
