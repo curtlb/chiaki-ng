@@ -84,7 +84,9 @@ Pane {
             text: "Импортировать конфиг"
             font.pixelSize: 60
             focusPolicy: Qt.NoFocus
-            onClicked: Chiaki.settings.importSettings(selectedFile)
+         onClicked: {
+                            importDialog.open()
+                        }
             Material.roundedScale: Material.SmallScale
   
         
