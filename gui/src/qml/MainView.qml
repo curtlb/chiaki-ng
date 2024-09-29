@@ -93,7 +93,7 @@ FileDialog {
  Button {
 
             Layout.fillHeight: true
-            Layout.preferredWidth: 100
+            Layout.preferredWidth: 150
             flat: true
             id: importButton
            
