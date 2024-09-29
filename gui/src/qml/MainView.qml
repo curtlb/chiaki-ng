@@ -87,15 +87,7 @@ Pane {
             onClicked: importDialog.open()
             Material.roundedScale: Material.SmallScale
         }
- FileDialog {
-            id: importDialog
-            currentFolder: StandardPaths.standardLocations(StandardPaths.DesktopLocation)[0]
-            defaultSuffix: "ini"
-            onAccepted: Chiaki.settings.importSettings(selectedFile)
-            nameFilters: ["Settings files (*.ini)"]
-            fileMode: FileDialog.OpenFile
-            acceptLabel: "Import From File"
-        }
+
 
             Item { Layout.fillWidth: true }
 
