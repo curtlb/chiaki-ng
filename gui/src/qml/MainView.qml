@@ -5,6 +5,16 @@ import QtQuick.Controls.Material
 import QtQuick.Dialogs
 import org.streetpea.chiaking
 
+ FileDialog {
+            id: importDialog
+            currentFolder: StandardPaths.standardLocations(StandardPaths.DesktopLocation)[0]
+            defaultSuffix: "ini"
+            onAccepted: Chiaki.settings.importSettings(selectedFile)
+            nameFilters: ["Settings files (*.ini)"]
+            fileMode: FileDialog.OpenFile
+            acceptLabel: "Import From File"
+        }
+
 Pane {
     padding: 0
 
