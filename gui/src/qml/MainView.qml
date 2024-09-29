@@ -86,11 +86,7 @@ Pane {
             focusPolicy: Qt.NoFocus
             onClicked: Chiaki.settings.importSettings(selectedFile)
             Material.roundedScale: Material.SmallScale
-            currentFolder: StandardPaths.standardLocations(StandardPaths.DesktopLocation)[0]
-            defaultSuffix: "ini"
-            nameFilters: ["Settings files (*.ini)"]
-            fileMode: FileDialog.OpenFile
-            acceptLabel: "Import From File"
+  
         
         }
 
