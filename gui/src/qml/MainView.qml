@@ -94,6 +94,7 @@ FileDialog {
             Layout.fillHeight: true
             Layout.preferredWidth: 200
             flat: true
+ id: importButton
             text: "Импортировать конфиг"
             font.pixelSize: 60
             focusPolicy: Qt.NoFocus
