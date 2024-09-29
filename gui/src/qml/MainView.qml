@@ -91,23 +91,21 @@ FileDialog {
                 Material.roundedScale: Material.SmallScale
             }
  Button {
+
             Layout.fillHeight: true
             Layout.preferredWidth: 100
             flat: true
             id: importButton
            
-  icon.source: "qrc:/icons/import.svg"
+  icon.source: "qrc:/icons/import.svg";
  icon.width: 50
-                icon.height: 50
-
-           
+                icon.height: 50   
             focusPolicy: Qt.NoFocus
          onClicked: {
                               importDialog.open()
                         }
             Material.roundedScale: Material.SmallScale
-  
-        
+
         }
 
 
