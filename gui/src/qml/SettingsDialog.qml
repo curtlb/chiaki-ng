@@ -430,6 +430,7 @@ DialogView {
  Label {
                         Layout.alignment: Qt.AlignRight
                         text: qsTr("Качество:")
+ visible: selectedConsole == SettingsDialog.Console.PS4
                     }
 
                     C.ComboBox {
@@ -468,7 +469,11 @@ DialogView {
                                 KeyNavigation.AfterItem
                         }
                     }
-
+ Label {
+                        Layout.alignment: Qt.AlignRight
+                        text: qsTr("Качество:")
+visible: selectedConsole == SettingsDialog.Console.PS5
+                    }
                     C.ComboBox {
                         id: resolutionRemotePS5
                         Layout.preferredWidth: 400
@@ -510,6 +515,7 @@ DialogView {
  Label {
                         Layout.alignment: Qt.AlignRight
                         text: qsTr("FPS:")
+visible: selectedConsole == SettingsDialog.Console.PS4
                     }
                     C.ComboBox {
                         id: fpsRemotePS4
@@ -547,7 +553,11 @@ DialogView {
                                 KeyNavigation.AfterItem
                         }
                     }
-
+ Label {
+                        Layout.alignment: Qt.AlignRight
+                        text: qsTr("FPS:")
+visible: selectedConsole == SettingsDialog.Console.PS5
+                    }
                     C.ComboBox {
                         id: fpsRemotePS5
                         Layout.preferredWidth: 400
@@ -610,6 +620,7 @@ DialogView {
 Label {
                         Layout.alignment: Qt.AlignRight
                         text: qsTr("Битрейт:")
+ visible: selectedConsole == SettingsDialog.Console.PS4
                     }
 
                     C.TextField {
@@ -690,7 +701,11 @@ Label {
                             return num >= 2000 && num <= 99999;
                         }
                     }
-
+Label {
+                        Layout.alignment: Qt.AlignRight
+                        text: qsTr("Битрейт:")
+visible: selectedConsole == SettingsDialog.Console.PS5
+                    }
                     C.TextField {
                         id: bitrateRemotePS5
                         Layout.preferredWidth: 400
