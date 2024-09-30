@@ -583,7 +583,7 @@ visible: selectedConsole == SettingsDialog.Console.PS5
 
                         Layout.preferredWidth: 0
                         visible: selectedConsole == SettingsDialog.Console.PS4
-                        text: Chiaki.settings.bitrateLocalPS4 || ""
+                        text: ""
                         placeholderText: {
                             var bitrate = 0;
                             switch (Chiaki.settings.resolutionLocalPS4) {
