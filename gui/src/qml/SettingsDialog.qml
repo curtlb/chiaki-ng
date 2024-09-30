@@ -397,12 +397,7 @@ DialogView {
                         text: qsTr("")
                     }
 
-                    Label {
-                        Layout.alignment: Qt.AlignCenter
-                        text: qsTr("Local")
-
-
-                    }
+                   
 
                     Label {
                         Layout.alignment: Qt.AlignCenter
@@ -417,7 +412,7 @@ DialogView {
                     C.ComboBox {
                         id: resolutionLocalPS4
 
-                        Layout.preferredWidth: 400
+                        Layout.preferredWidth: 0
                         model: [qsTr("360p"), qsTr("540p"), qsTr("720p (Default)"), qsTr("1080p (PS5 and PS4 Pro)")]
                         currentIndex: Chiaki.settings.resolutionLocalPS4 - 1
                         onActivated: (index) => Chiaki.settings.resolutionLocalPS4 = index + 1
@@ -454,7 +449,7 @@ DialogView {
                     C.ComboBox {
                         id: resolutionLocalPS5
 
-                        Layout.preferredWidth: 400
+                        Layout.preferredWidth: 0
                         model: [qsTr("360p"), qsTr("540p"), qsTr("720p"), qsTr("1080p (Default)")]
                         currentIndex: Chiaki.settings.resolutionLocalPS5 - 1
                         onActivated: (index) => Chiaki.settings.resolutionLocalPS5 = index + 1
@@ -496,7 +491,7 @@ DialogView {
                     C.ComboBox {
                         id: fpsLocalPS4
 
-                        Layout.preferredWidth: 400
+                        Layout.preferredWidth: 0
                         model: [qsTr("30 fps"), qsTr("60 fps (Default)")]
                         currentIndex: (Chiaki.settings.fpsLocalPS4 / 30) - 1
                         onActivated: (index) => Chiaki.settings.fpsLocalPS4 = (index + 1) * 30
@@ -533,7 +528,7 @@ DialogView {
                     C.ComboBox {
                         id: fpsLocalPS5
 
-                        Layout.preferredWidth: 400
+                        Layout.preferredWidth: 0
                         model: [qsTr("30 fps"), qsTr("60 fps (Default)")]
                         currentIndex: (Chiaki.settings.fpsLocalPS5 / 30) - 1
                         onActivated: (index) => Chiaki.settings.fpsLocalPS5 = (index + 1) * 30
@@ -575,7 +570,7 @@ DialogView {
                     C.TextField {
                         id: bitrateLocalPS4
 
-                        Layout.preferredWidth: 400
+                        Layout.preferredWidth: 0
                         visible: selectedConsole == SettingsDialog.Console.PS4
                         text: Chiaki.settings.bitrateLocalPS4 || ""
                         placeholderText: {
@@ -653,7 +648,7 @@ DialogView {
                     C.TextField {
                         id: bitrateLocalPS5
 
-                        Layout.preferredWidth: 400
+                        Layout.preferredWidth: 0
                         visible: selectedConsole == SettingsDialog.Console.PS5
                         text: Chiaki.settings.bitrateLocalPS5 || ""
                         placeholderText: {
@@ -738,7 +733,7 @@ DialogView {
                     C.ComboBox {
                         id: codecLocalPS5
 
-                        Layout.preferredWidth: 400
+                        Layout.preferredWidth: 0
                         model: [qsTr("H264"), qsTr("H265 (Default)"), qsTr("H265 HDR")]
                         currentIndex: Chiaki.settings.codecLocalPS5
                         onActivated: (index) => Chiaki.settings.codecLocalPS5 = index
