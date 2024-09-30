@@ -338,7 +338,7 @@ DialogView {
                         horizontalCenter: parent.horizontalCenter
                         topMargin: 20
                     }
-                    columns: 3
+                    columns: 2
                     rowSpacing: 10
                     columnSpacing: 20
 
