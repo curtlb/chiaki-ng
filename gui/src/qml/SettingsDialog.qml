@@ -65,10 +65,7 @@ DialogView {
                 focusPolicy: Qt.NoFocus
             }
 
-            TabButton {
-                text: qsTr("Консоли")
-                focusPolicy: Qt.NoFocus
-            }
+           
 
             TabButton {
                 text: qsTr("Раскладка")
@@ -401,7 +398,7 @@ DialogView {
 
                     Label {
                         Layout.alignment: Qt.AlignCenter
-                        text: qsTr("Remote")
+                        text: qsTr("")
                     }
 
                     Label {
