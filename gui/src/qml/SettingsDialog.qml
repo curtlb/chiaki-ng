@@ -391,7 +391,7 @@ DialogView {
 
                     Label {
                         Layout.alignment: Qt.AlignRight
-                        text: qsTr("")
+                        text: qsTr("Local")
                     }
 
                    
@@ -413,7 +413,7 @@ DialogView {
                         model: [qsTr("360p"), qsTr("540p"), qsTr("720p (Default)"), qsTr("1080p (PS5 and PS4 Pro)")]
                         currentIndex: Chiaki.settings.resolutionLocalPS4 - 1
                         onActivated: (index) => Chiaki.settings.resolutionLocalPS4 = index + 1
-                        visible: false
+                        
                         KeyNavigation.right: resolutionRemotePS4
                         KeyNavigation.down: fpsLocalPS4
                         KeyNavigation.up: consoleSelection
@@ -452,7 +452,7 @@ DialogView {
                         model: [qsTr("360p"), qsTr("540p"), qsTr("720p"), qsTr("1080p (Default)")]
                         currentIndex: Chiaki.settings.resolutionLocalPS5 - 1
                         onActivated: (index) => Chiaki.settings.resolutionLocalPS5 = index + 1
-                        visible: false
+                       
                         KeyNavigation.right: resolutionRemotePS5
                         KeyNavigation.up: consoleSelection
                         KeyNavigation.down: fpsLocalPS5
@@ -495,7 +495,7 @@ DialogView {
                         model: [qsTr("30 fps"), qsTr("60 fps (Default)")]
                         currentIndex: (Chiaki.settings.fpsLocalPS4 / 30) - 1
                         onActivated: (index) => Chiaki.settings.fpsLocalPS4 = (index + 1) * 30
-                        visible: false
+                       
                         KeyNavigation.up: resolutionLocalPS4
                         KeyNavigation.right: fpsRemotePS4
                         KeyNavigation.down: bitrateLocalPS4
@@ -533,7 +533,7 @@ DialogView {
                         model: [qsTr("30 fps"), qsTr("60 fps (Default)")]
                         currentIndex: (Chiaki.settings.fpsLocalPS5 / 30) - 1
                         onActivated: (index) => Chiaki.settings.fpsLocalPS5 = (index + 1) * 30
-                        visible: false
+                       
                         KeyNavigation.up: resolutionLocalPS5
                         KeyNavigation.right: fpsRemotePS5
                         KeyNavigation.down: bitrateLocalPS5
@@ -573,7 +573,7 @@ DialogView {
                         id: bitrateLocalPS4
 
                         Layout.preferredWidth: 400
-                        visible: false
+                       
                         text: Chiaki.settings.bitrateLocalPS4 || ""
                         placeholderText: {
                             var bitrate = 0;
@@ -652,7 +652,7 @@ DialogView {
                         id: bitrateLocalPS5
 
                         Layout.preferredWidth: 400
-                        visible: false
+                     
                         text: Chiaki.settings.bitrateLocalPS5 || ""
                         placeholderText: {
                             var bitrate = 0;
@@ -741,7 +741,7 @@ DialogView {
                         model: [qsTr("H264"), qsTr("H265 (Default)"), qsTr("H265 HDR")]
                         currentIndex: Chiaki.settings.codecLocalPS5
                         onActivated: (index) => Chiaki.settings.codecLocalPS5 = index
-                        visible: false
+                       
                         Keys.onReturnPressed: {
                             if (popup.visible) {
                                 activated(highlightedIndex);
