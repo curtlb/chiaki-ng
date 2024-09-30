@@ -406,10 +406,7 @@ DialogView {
                         text: qsTr("Параметры запуска")
                     }
 
-                    Label {
-                        Layout.alignment: Qt.AlignRight
-                        text: qsTr("Качество:")
-                    }
+                   
 
                     C.ComboBox {
                         id: resolutionLocalPS4
@@ -428,6 +425,11 @@ DialogView {
                             else
                                 KeyNavigation.AfterItem
                         }
+                    }
+
+ Label {
+                        Layout.alignment: Qt.AlignRight
+                        text: qsTr("Качество:")
                     }
 
                     C.ComboBox {
@@ -485,10 +487,7 @@ DialogView {
                         }
                     }
 
-                    Label {
-                        Layout.alignment: Qt.AlignRight
-                        text: qsTr("FPS:")
-                    }
+                   
 
                     C.ComboBox {
                         id: fpsLocalPS4
@@ -508,7 +507,10 @@ DialogView {
                                 KeyNavigation.AfterItem
                         }
                     }
-
+ Label {
+                        Layout.alignment: Qt.AlignRight
+                        text: qsTr("FPS:")
+                    }
                     C.ComboBox {
                         id: fpsRemotePS4
                         Layout.preferredWidth: 400
@@ -564,10 +566,7 @@ DialogView {
                         }
                     }
 
-                    Label {
-                        Layout.alignment: Qt.AlignRight
-                        text: qsTr("Битрейт:")
-                    }
+                    
 
                     C.TextField {
                         id: bitrateLocalPS4
@@ -606,6 +605,11 @@ DialogView {
                             var num = parseInt(text);
                             return num >= 2000 && num <= 99999;
                         }
+                    }
+
+Label {
+                        Layout.alignment: Qt.AlignRight
+                        text: qsTr("Битрейт:")
                     }
 
                     C.TextField {
@@ -726,11 +730,7 @@ DialogView {
                         }
                     }
 
-                    Label {
-                        Layout.alignment: Qt.AlignRight
-                        text: qsTr("Сжатие:")
-                        visible: selectedConsole == SettingsDialog.Console.PS5
-                    }
+                  
 
                     C.ComboBox {
                         id: codecLocalPS5
@@ -756,7 +756,11 @@ DialogView {
                                 KeyNavigation.AfterItem
                         }
                     }
-
+  Label {
+                        Layout.alignment: Qt.AlignRight
+                        text: qsTr("Сжатие:")
+                        visible: selectedConsole == SettingsDialog.Console.PS5
+                    }
                     C.ComboBox {
                         id: codecRemotePS5
                         Layout.preferredWidth: 400
