@@ -431,6 +431,7 @@ DialogView {
                     C.ComboBox {
                         id: resolutionRemotePS4
                         Layout.preferredWidth: 400
+ Layout.alignment: Qt.AlignRight
                         model: [qsTr("360p"), qsTr("540p"), qsTr("720p (Default)"), qsTr("1080p (PS5 and PS4 Pro)")]
                         currentIndex: Chiaki.settings.resolutionRemotePS4 - 1
                         onActivated: (index) => Chiaki.settings.resolutionRemotePS4 = index + 1
@@ -450,6 +451,7 @@ DialogView {
                         id: resolutionLocalPS5
 
                         Layout.preferredWidth: 0
+
                         model: [qsTr("360p"), qsTr("540p"), qsTr("720p"), qsTr("1080p (Default)")]
                         currentIndex: Chiaki.settings.resolutionLocalPS5 - 1
                         onActivated: (index) => Chiaki.settings.resolutionLocalPS5 = index + 1
@@ -468,6 +470,7 @@ DialogView {
                     C.ComboBox {
                         id: resolutionRemotePS5
                         Layout.preferredWidth: 400
+ Layout.alignment: Qt.AlignRight
                         model: [qsTr("360p"), qsTr("540p"), qsTr("720p (Default)"), qsTr("1080p")]
                         currentIndex: Chiaki.settings.resolutionRemotePS5 - 1
                         onActivated: (index) => Chiaki.settings.resolutionRemotePS5 = index + 1
@@ -510,6 +513,7 @@ DialogView {
                     C.ComboBox {
                         id: fpsRemotePS4
                         Layout.preferredWidth: 400
+ Layout.alignment: Qt.AlignRight
                         model: [qsTr("30 fps"), qsTr("60 fps (Default)")]
                         currentIndex: (Chiaki.settings.fpsRemotePS4 / 30) - 1
                         onActivated: (index) => Chiaki.settings.fpsRemotePS4 = (index + 1) * 30
@@ -547,6 +551,7 @@ DialogView {
                     C.ComboBox {
                         id: fpsRemotePS5
                         Layout.preferredWidth: 400
+ Layout.alignment: Qt.AlignRight
                         model: [qsTr("30 fps"), qsTr("60 fps (Default)")]
                         currentIndex: (Chiaki.settings.fpsRemotePS5 / 30) - 1
                         onActivated: (index) => Chiaki.settings.fpsRemotePS5 = (index + 1) * 30
@@ -609,6 +614,7 @@ DialogView {
                     C.TextField {
                         id: bitrateRemotePS4
                         Layout.preferredWidth: 400
+ Layout.alignment: Qt.AlignRight
                         visible: selectedConsole == SettingsDialog.Console.PS4
                         text: Chiaki.settings.bitrateRemotePS4 || ""
                         placeholderText: {
@@ -688,6 +694,7 @@ DialogView {
                     C.TextField {
                         id: bitrateRemotePS5
                         Layout.preferredWidth: 400
+ Layout.alignment: Qt.AlignRight
                         visible: selectedConsole == SettingsDialog.Console.PS5
                         text: Chiaki.settings.bitrateRemotePS5 || ""
                         placeholderText: {
@@ -758,6 +765,7 @@ DialogView {
                     C.ComboBox {
                         id: codecRemotePS5
                         Layout.preferredWidth: 400
+ Layout.alignment: Qt.AlignRight
                         model: [qsTr("H264"), qsTr("H265 (Default)"), qsTr("H265 HDR")]
                         currentIndex: Chiaki.settings.codecRemotePS5
                         onActivated: (index) => Chiaki.settings.codecRemotePS5 = index
