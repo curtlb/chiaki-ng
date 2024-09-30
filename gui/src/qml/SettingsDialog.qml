@@ -667,7 +667,7 @@ Label {
 
                         Layout.preferredWidth: 0
                         visible: selectedConsole == SettingsDialog.Console.PS5
-                        text: Chiaki.settings.bitrateLocalPS5 || ""
+                        text: ""
                         placeholderText: {
                             var bitrate = 0;
                             switch (Chiaki.settings.resolutionLocalPS5) {
