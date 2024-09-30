@@ -433,7 +433,7 @@ DialogView {
                         Layout.preferredWidth: 400
  Layout.alignment: Qt.AlignRight
                         model: [qsTr("360p"), qsTr("540p"), qsTr("720p (Default)"), qsTr("1080p (PS5 and PS4 Pro)")]
-                        currentIndex: Chiaki.settings.resolutionRemotePS4 - 1
+                        currentIndex: Chiaki.settings.resolutionRemotePS4 - 2
                         onActivated: (index) => Chiaki.settings.resolutionRemotePS4 = index + 1
                         visible: selectedConsole == SettingsDialog.Console.PS4
                         KeyNavigation.left: resolutionLocalPS4
@@ -472,7 +472,7 @@ DialogView {
                         Layout.preferredWidth: 400
  Layout.alignment: Qt.AlignRight
                         model: [qsTr("360p"), qsTr("540p"), qsTr("720p (Default)"), qsTr("1080p")]
-                        currentIndex: Chiaki.settings.resolutionRemotePS5 - 1
+                        currentIndex: Chiaki.settings.resolutionRemotePS5 - 2
                         onActivated: (index) => Chiaki.settings.resolutionRemotePS5 = index + 1
                         visible: selectedConsole == SettingsDialog.Console.PS5
                         KeyNavigation.left: resolutionLocalPS5
@@ -515,7 +515,7 @@ DialogView {
                         Layout.preferredWidth: 400
  Layout.alignment: Qt.AlignRight
                         model: [qsTr("30 fps"), qsTr("60 fps (Default)")]
-                        currentIndex: (Chiaki.settings.fpsRemotePS4 / 30) - 1
+                        currentIndex: (Chiaki.settings.fpsRemotePS4 / 30) - 2
                         onActivated: (index) => Chiaki.settings.fpsRemotePS4 = (index + 1) * 30
                         visible: selectedConsole == SettingsDialog.Console.PS4
                         KeyNavigation.up: resolutionRemotePS4
@@ -553,7 +553,7 @@ DialogView {
                         Layout.preferredWidth: 400
  Layout.alignment: Qt.AlignRight
                         model: [qsTr("30 fps"), qsTr("60 fps (Default)")]
-                        currentIndex: (Chiaki.settings.fpsRemotePS5 / 30) - 1
+                        currentIndex: (Chiaki.settings.fpsRemotePS5 / 30) - 2
                         onActivated: (index) => Chiaki.settings.fpsRemotePS5 = (index + 1) * 30
                         visible: selectedConsole == SettingsDialog.Console.PS5
                         KeyNavigation.up: resolutionRemotePS5
@@ -767,7 +767,7 @@ DialogView {
                         Layout.preferredWidth: 400
  Layout.alignment: Qt.AlignRight
                         model: [qsTr("H264"), qsTr("H265 (Default)"), qsTr("H265 HDR")]
-                        currentIndex: Chiaki.settings.codecRemotePS5
+                        currentIndex: Chiaki.settings.codecRemotePS5 - 2
                         onActivated: (index) => Chiaki.settings.codecRemotePS5 = index
                         visible: selectedConsole == SettingsDialog.Console.PS5
                         lastInFocusChain: true
